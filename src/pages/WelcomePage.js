@@ -9,7 +9,7 @@ function WelcomePage() {
       <>
         <div className="App-container">
           <h1 className="App-title">{title}</h1>
-          <button className="App-button">{ buttonText.toUpperCase() }</button>
+          <a href="#" className="App-button">{ buttonText.toUpperCase() }</a>
         </div>
         <Footer />
       </>
