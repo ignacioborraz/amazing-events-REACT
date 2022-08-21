@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.Welcome-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Welcome-button {
+    width: 80px;
+    height: 80px;
+    border: 0px solid rgb(210, 210, 210);
+    background: rgb(210, 210, 210);
+    font-weight: 1000;
+    padding: 5px;
+    color: rgb(130, 40, 60);
+    border-radius: 40px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Welcome-title {
+    margin: 0;
+    font-size: 4rem;
+    margin-bottom: 72px;
+    color: rgb(40, 40, 40);
+}
+
