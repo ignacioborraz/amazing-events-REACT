@@ -7,7 +7,7 @@ function Carousel(props) {
     const data = props.data
 
     const events = (event) => (
-        <div className="Carousel-event">
+        <div className="Carousel-event" key={event.name}>
             <img src={event.image} alt={event.name} className="Carousel-image" />
             <p className="Carousel-text">{event.name}</p>
         </div>
