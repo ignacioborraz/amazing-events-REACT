@@ -1,3 +1,4 @@
+import CallToAction from './CallToAction'
 import '../styles/Welcome.css'
 
 function Welcome() {
@@ -7,7 +8,7 @@ function Welcome() {
     return (
       <div className='Welcome-container'>
         <h1 className="Welcome-title">{title}</h1>
-        <a href="#" className="Welcome-button">{ buttonText.toUpperCase() }</a>
+        <CallToAction linkTo='#' buttonText={buttonText}/>
       </div>
     );
 }
