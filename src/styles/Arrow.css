@@ -1,3 +1,14 @@
+.Arrow-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3vw;
+    height: calc(90vh - 1.5rem);
+}
 .Arrow-button {
-    padding: 3%;
+    width: 3vw;
+    height: 3vw;
+    border: 0px solid rgb(210, 210, 210);
+    border-radius: 1.5vw;
+    background-color: rgb(210, 210, 210);
 }

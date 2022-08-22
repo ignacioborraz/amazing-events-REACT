@@ -13,6 +13,10 @@
     justify-content: center;
 }
 
+.Carousel-full {
+    display: flex;
+}
+
 .Carousel-slide {
     width: 90vw;
     height: calc(90vh - 1.5rem);
