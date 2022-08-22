@@ -10,9 +10,11 @@ function Arrow(props) {
     }
 
     return (
-        <button className="Arrow-button" onClick={props.click}>
-            {props.icon}
-        </button>
+        <div className="Arrow-box">
+            <button className="Arrow-button" onClick={props.click}>
+                {props.icon}
+            </button>
+        </div>
     )
 }
 
