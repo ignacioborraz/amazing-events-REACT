@@ -506,7 +506,7 @@ function EventsCarousel() {
     ]
 
     return (
-        <Carousel data={events} range={4} text='Popular Events' interval={5} />
+        <Carousel data={events} range={4} slides={5} interval={5} text='Popular Events' />
     )
 }
 
