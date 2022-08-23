@@ -1,14 +1,13 @@
 import HomePage from './pages/HomePage'
 import EventsPage from './pages/EventsPage'
-import EventsCarousel from './components/EventsCarousel'
+import UnderConstruction from './pages/UnderConstruction'
 
 function App() {
   return (
     <div>
+      {/* <HomePage /> */}
       {/* <EventsPage /> */}
-      <HomePage />
-
-      {/* <EventsCarousel /> */}
+      <UnderConstruction />
     </div>
   )
 }

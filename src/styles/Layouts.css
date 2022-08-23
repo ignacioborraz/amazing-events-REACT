@@ -10,6 +10,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: url('https://ignacioborraz.github.io/eventos-espectaculares-JS/files/asientos.jpg');
+}
+
+.L-text {
+    color: rgb(40, 40, 40);
+}
+
+.L-link {
+    color: rgb(210, 210, 210);
+    font-weight: 1000;
+
+    text-decoration: none;
+}
+
+.L-link:hover {
+    color: rgb(40, 40, 40);
 }
