@@ -4,10 +4,10 @@ import WebsiteLayout from '../layouts/WebsiteLayout'
 
 function HomePage() {
     return (
-        <WebsiteLayout>
-            <Welcome />
-            <EventsCarousel />
-        </WebsiteLayout>
+        <>
+        <Welcome />
+        <EventsCarousel />
+        </>
     )
 }
 
