@@ -8,7 +8,7 @@ function Welcome() {
     return (
       <div className='Welcome-container'>
         <h1 className="Welcome-title">{title}</h1>
-        <CallToAction linkTo='#' buttonText={buttonText}/>
+        <CallToAction linkTo='events' buttonText={buttonText}/>
       </div>
     );
 }
