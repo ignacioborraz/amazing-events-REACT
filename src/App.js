@@ -4,11 +4,11 @@ import UnderConstruction from './pages/UnderConstruction'
 
 function App() {
   return (
-    <div>
+    <>
       {/* <HomePage /> */}
-      {/* <EventsPage /> */}
-      <UnderConstruction />
-    </div>
+      <EventsPage />
+      {/* <UnderConstruction /> */}
+    </>
   )
 }
 
