@@ -8,7 +8,7 @@ const pages = [
     {name: 'Contact', to: '/contact'},
 ]
 
-const link = (page) => <LinkRouter className='Header-link' to={page.to}>{page.name}</LinkRouter>
+const link = (page) => <LinkRouter className='Header-link' to={page.to} key={page.name}>{page.name}</LinkRouter>
 
 function Header() {
     return (

@@ -1,11 +1,24 @@
 .Header-container {
+    width: 100%;
+    color: rgb(210,210,210);
+    background-color: rgb(40,40,40);
+    padding: 10px 0;
     display: flex;
     justify-content: center;
-    width: 100%;
-    background-color: brown;
+    align-items: center;
 }
 
 .Header-link {
+    padding: 5px;
+    margin: 5px;
+    color: rgb(210,210,210);
+    background-color: rgb(130,40,60);
+    border-radius: 5px;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.Header-link:hover {
+    background-color: rgba(130,40,60,0.8);
     color: white;
-    margin: 0 20px;
 }
