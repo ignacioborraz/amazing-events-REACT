@@ -3,9 +3,7 @@ import WebsiteLayout from '../layouts/WebsiteLayout'
 
 function EventsPage() {
     return (
-        <WebsiteLayout>
             <EventsCards />
-        </WebsiteLayout>
     )
 }
 
