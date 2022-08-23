@@ -9,7 +9,14 @@
     align-items: center;
 }
 
-.Footer-p {
+.Footer-p, .Footer-title {
     margin: 0;
     padding: 5px;
+}
+
+.Footer-title {
+    color: rgb(40,40,40);
+    font-size: 2rem;
+    text-shadow: 0 0 5px white, 0 0 5px white, 0px 0px 5px white;
+    font-family: 'Lobster Two', cursive;
 }

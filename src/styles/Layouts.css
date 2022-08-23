@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
 .L-container {
     width: 100%;
     min-height: 100vh;
@@ -16,6 +18,7 @@
 
 .L-text {
     color: rgb(40, 40, 40);
+    text-shadow: 0 0 10px white, 0 0 10px white, 0px 0px 10px white;
 }
 
 .L-link {
