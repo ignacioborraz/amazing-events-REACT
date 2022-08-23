@@ -25,7 +25,7 @@ function Carousel(props) {
 
         setIntervalId(id)
 
-        return () => clearInterval(intervalId);
+        return () => clearInterval(id)
     }, [start])
 
     function previous() {
@@ -36,6 +36,7 @@ function Carousel(props) {
             setStart(limitSlides-range)
             setEnd(limitSlides)
         }
+        clearInterval(intervalId)
     }
 
     function next() {
@@ -46,6 +47,7 @@ function Carousel(props) {
             setStart(0)
             setEnd(range)
         }
+        clearInterval(intervalId)
     }
 
     return (
