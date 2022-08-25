@@ -18,7 +18,8 @@ export default function Footer() {
             </LinkRouter>
             <div className='Footer-middle'>
                 <p className='Footer-title'>Amazing Events</p>
-                <p className='Footer-p'>borraz - lopez - rodriguez - villafañe</p>          
+                <p className='Footer-p'>borraz - lopez - rodriguez</p>
+                <p className='Footer-p'>villafañe</p>
             </div>
             <img src='top-icon.png' onClick={scrollUp} className='Footer-button' alt='top' />
         </div>
