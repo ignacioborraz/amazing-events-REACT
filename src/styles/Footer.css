@@ -2,7 +2,13 @@
     width: 100%;
     color: rgb(210,210,210);
     background-color: rgb(40,40,40);
-    padding: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Footer-middle {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +16,10 @@
 }
 
 .Footer-p, .Footer-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: 0;
     padding: 5px;
 }
@@ -19,4 +29,17 @@
     font-size: 2rem;
     text-shadow: 0 0 5px white, 0 0 5px white, 0px 0px 5px white;
     font-family: 'Lobster Two', cursive;
+}
+
+.Footer-button {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(130,40,60);
+}
+
+.Footer-button:hover {
+    box-shadow: 0 0 5px rgb(210,210,210), 0 0 5px rgb(210,210,210), 0px 0px 5px rgb(210,210,210);
 }
