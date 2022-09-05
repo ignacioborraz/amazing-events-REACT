@@ -56,7 +56,7 @@ function Carousel(props) {
                 <div className="Carousel-full">
                     <Arrow icon={"<"} click={previous} />
                     <div className="Carousel-slide">
-                        {data.slice(start, end).map(events)}
+                        {data?.slice(start, end).map(events)}
                     </div>
                     <Arrow icon={">"} click={next} />
                 </div>               
