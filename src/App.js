@@ -6,7 +6,6 @@ import WebsiteLayout from './layouts/WebsiteLayout'
 import Details from './components/Details'
 import ScrollToTop from './components/ScrollToTop'
 
-
 function App() {
   return (
     <BrowserRouter>
