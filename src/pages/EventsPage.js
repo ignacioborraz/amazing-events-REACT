@@ -1,10 +1,8 @@
-import WebsiteLayout from '../layouts/WebsiteLayout'
+import EventsCards from '../components/EventsCards'
 
 function EventsPage() {
     return (
-        <WebsiteLayout>
-            <h1>Eventos</h1>
-        </WebsiteLayout>
+        <EventsCards />
     )
 }
 

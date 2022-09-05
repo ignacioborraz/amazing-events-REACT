@@ -14,18 +14,27 @@
 }
 
 .Welcome-button {
-    width: 80px;
-    height: 80px;
     border: 0px solid rgb(210, 210, 210);
     background: rgb(210, 210, 210);
     font-weight: 1000;
     padding: 5px;
     color: rgb(130, 40, 60);
-    border-radius: 40px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Welcome-Radio-80 {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+
+.Welcome-Radio-120 {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
 }
 
 .Welcome-title {
@@ -33,5 +42,7 @@
     font-size: 4rem;
     margin-bottom: 72px;
     color: rgb(40, 40, 40);
+    text-shadow: 0 0 10px white, 0 0 10px white, 0px 0px 10px white;
+    font-family: 'Lobster Two', cursive;
 }
 

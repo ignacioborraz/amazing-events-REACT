@@ -1,15 +1,26 @@
 import HomePage from './pages/HomePage'
 import EventsPage from './pages/EventsPage'
-import EventsCarousel from './components/EventsCarousel'
+import UnderConstruction from './pages/UnderConstruction'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import WebsiteLayout from './layouts/WebsiteLayout'
+import Details from './components/Details'
+import ScrollToTop from './components/ScrollToTop'
+
 
 function App() {
   return (
-    <div>
-      {/* <EventsPage /> */}
-      <HomePage />
+    <BrowserRouter>
+      <ScrollToTop />
+      <WebsiteLayout>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/events' element={<EventsPage />} />
+          <Route path='/events/:id/empleado/:nombreEmpleado' element={<Details />} />
+          <Route path='*' element={<UnderConstruction />} />
+        </Routes>
+      </WebsiteLayout>
+    </BrowserRouter>
 
-      {/* <EventsCarousel /> */}
-    </div>
   )
 }
 

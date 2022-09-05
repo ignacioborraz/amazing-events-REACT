@@ -1,0 +1,78 @@
+.Header-container {
+    width: 100%;
+    color: rgb(210,210,210);
+    background-color: rgb(40,40,40);
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header-link {
+    height: 40px;
+    padding: 5px;
+    margin: 5px;
+    color: rgb(210,210,210);
+    background-color: rgb(130,40,60);
+    border-radius: 5px;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.Header-link:hover {
+    color: rgb(210,210,210);
+    background-color: rgba(130,40,60,0.8);
+}
+
+.active {
+    padding: 6px;
+    color: rgb(40,40,40);
+    background-color: rgb(210,210,210);
+}
+
+.active:hover {
+    background-color: rgba(210,210,210,0.2);
+}
+
+.Header-icon {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    margin: 5px;
+    color: rgb(210,210,210);
+    background-color: rgb(130,40,60);
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.Header-icon:hover {
+    box-shadow: 0 0 5px rgb(210,210,210), 0 0 5px rgb(210,210,210), 0px 0px 5px rgb(210,210,210);
+}
+
+.Header-user {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55px;
+    right: 55px;
+}
+
+.Header-option {
+    font-size: 14px;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    color: rgb(40,40,40);
+    background-color: rgb(210,210,210);
+}
+
+.Header-option:hover {
+    background-color: white;
+    font-weight: 600;
+}

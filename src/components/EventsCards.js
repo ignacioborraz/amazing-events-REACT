@@ -1,6 +1,8 @@
-import Carousel from './Carousel'
+import Card from './Card'
 
-function EventsCarousel() {
+import '../styles/Card.css'
+
+export default function EventsCards() {
     let events = [
         {
             image: "https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas7.jpg",
@@ -506,8 +508,8 @@ function EventsCarousel() {
     ]
 
     return (
-        <Carousel data={events} range={4} slides={5} interval={5} text='Popular Events' />
+        <div className='Events-container'>
+            {events.map(event => <Card event={event} key={event.name}/>)}
+        </div>
     )
 }
-
-export default EventsCarousel

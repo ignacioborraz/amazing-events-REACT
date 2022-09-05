@@ -4,12 +4,30 @@
     padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
 .L-container {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: url('https://ignacioborraz.github.io/eventos-espectaculares-JS/files/asientos.jpg');
+}
+
+.L-text {
+    color: rgb(40, 40, 40);
+    text-shadow: 0 0 10px white, 0 0 10px white, 0px 0px 10px white;
+}
+
+.L-link {
+    color: rgb(210, 210, 210);
+    font-weight: 1000;
+
+    text-decoration: none;
+}
+
+.L-link:hover {
+    color: rgb(40, 40, 40);
 }
