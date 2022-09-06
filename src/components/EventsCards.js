@@ -1,20 +1,19 @@
-import {useEffect} from 'react'
 import Card from './Card'
-import {useSelector, useDispatch} from 'react-redux'
-import {fetchFromServer} from '../features/eventsSlice' 
 import '../styles/Card.css'
+import {useGetAllEventsQuery} from '../features/eventsAPI'
 
 export default function EventsCards() {
-    let events = useSelector( state => state.events.events )
-    let dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchFromServer())
-    }, [])
+    const {
+        data : events,
+        error,
+        isLoading,
+        isSuccess,
+        isFailed,
+    } = useGetAllEventsQuery()
 
     return (
         <div className='Events-container'>
-            {events.map(event => <Card event={event} key={event.name}/>)}
+            {events?.map(event => <Card event={event} key={event.name}/>)}
         </div>
     )
 }
