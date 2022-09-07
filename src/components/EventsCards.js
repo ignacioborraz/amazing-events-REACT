@@ -1,19 +1,19 @@
 import Card from './Card'
-import axios from 'axios'
 import '../styles/Card.css'
-import apiUrl from '../url'
-import { useEffect, useState } from 'react'
+import {useGetAllEventsQuery} from '../features/eventsAPI'
 
 export default function EventsCards() {
-    let [events,setEvents] = useState([])
-    
-    useEffect(() =>{
-        axios.get(apiUrl+'events').then(response => setEvents(response.data))
-    },[])
+    const {
+        data : events,
+        error,
+        isLoading,
+        isSuccess,
+        isFailed,
+    } = useGetAllEventsQuery()
 
     return (
         <div className='Events-container'>
-            {events.map(event => <Card event={event} key={event._id}/>)}
+            {events?.map(event => <Card event={event} key={event.name}/>)}
         </div>
     )
 }
