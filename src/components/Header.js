@@ -18,7 +18,7 @@ function Header() {
     const handleCloseMenu = (event) => {
         const isClickInside = menuIcon.current.contains(event.target)
         
-        if(menuIcon.current != event.target && !isClickInside) {
+        if(menuIcon.current !== event.target && !isClickInside) {
             setOpen(false)
         }
         
