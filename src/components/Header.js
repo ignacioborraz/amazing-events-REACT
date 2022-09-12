@@ -42,7 +42,7 @@ function Header() {
             {open && (
                 <div className='Header-user'>
                     <LinkRouter className='Header-option' to='login'>Log In</LinkRouter>
-                    <LinkRouter className='Header-option' to='signup'>Sign Up</LinkRouter>
+                    <LinkRouter className='Header-option' to='auth/signup'>Sign Up</LinkRouter>
                 </div>
             )}
             <img ref={menuIcon} src='/user-icon.png' className="Header-icon" onClick={handleToggleMenu} alt='user' />
