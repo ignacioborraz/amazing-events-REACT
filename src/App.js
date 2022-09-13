@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import WebsiteLayout from './layouts/WebsiteLayout'
 import Details from './components/Details'
 import ScrollToTop from './components/ScrollToTop'
+import SignUp from './pages/SignUp'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <WebsiteLayout>
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/auth/signup' element={<SignUp />} />
           <Route path='/events' element={<EventsPage />} />
           <Route path='/events/:id/empleado/:nombreEmpleado' element={<Details />} />
           <Route path='*' element={<UnderConstruction />} />
