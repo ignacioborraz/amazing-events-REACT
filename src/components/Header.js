@@ -40,35 +40,36 @@ function Header() {
     }, [])
 
     async function signOut() {
-        let email = JSON.parse(localStorage.getItem('user')).email
+        let email = JSON.parse(localStorage.getItem('user')).email //primero busco el mail del objeto del localStorage
         try {
-            let response = await axios.post(apiUrl+'auth/signout',{email})
+            let response = await axios.post(apiUrl+'auth/signout',{email}) //realizo la peticion (con REDUX o con AXIOS)
             console.log(response)
-            localStorage.removeItem('user')
-            navigate("/",{replace:true})
+            setLogged(false) //seteo nuevamente a false el logged para mostrar la barra de navegacion de usuario deslogueado
+            localStorage.removeItem('user') //removí del localStorage la clave 'user'
+            navigate("/",{replace:true}) //redirigí al index
         } catch(error) {
             console.log(error)
-        } 
+        }
     }
 
-    return (logged ? (
+    return (logged ? ( //si el usuario esta logueado
         <div className="Header-container">
             {pages.map(link)}
             {open && (
                 <div className='Header-user'>
-                    <div className='Header-option'>{JSON.parse(localStorage.getItem('user')).name}</div>
-                    <div className='Header-option' onClick={signOut}>Sign Out</div>
+                    <div className='Header-option'>{JSON.parse(localStorage.getItem('user')).name}</div> {/* busco la propiedad name de la clave user */}
+                    <div className='Header-option' onClick={signOut}>Sign Out</div> {/* link para desloguear */}
                 </div>
             )}
             <img ref={menuIcon} src='/user-icon.png' className="Header-icon" onClick={handleToggleMenu} alt='user' />
         </div>
-    ) : (
+    ) : ( //si no esta logueado voy a mostrar estas opciones
         <div className="Header-container">
             {pages.map(link)}
             {open && (
                 <div className='Header-user'>
-                    <LinkRouter className='Header-option' to='signin'>Sign In</LinkRouter>
-                    <LinkRouter className='Header-option' to='signup'>Sign Up</LinkRouter>
+                    <LinkRouter className='Header-option' to='signin'>Sign In</LinkRouter> {/* opcion para loguearse */}
+                    <LinkRouter className='Header-option' to='signup'>Sign Up</LinkRouter> {/* opcion para registrarse */}
                 </div>
             )}
             <img ref={menuIcon} src='/user-icon.png' className="Header-icon" onClick={handleToggleMenu} alt='user' />
@@ -79,3 +80,19 @@ function Header() {
 export default Header
 
 // open ? 'true' : 'false'
+
+// CONDICIONES DE LA BARRA DE NAVEGACION
+
+// el usuario está logueado ?
+    // el usuario es estandar ?
+        //muetro cities y mytineraries
+    // el usuario es admin ?
+        //muestro cities, new city, edit city
+// el usuario no está logueado
+
+// user?
+    //(user.role=user?
+        //(opciones para usuario estandar) : (opciones para usuario admin) ) : (opciones usuario deslogueado)
+
+//LOGGED ES UN ESTADO QUE SE DEBE modificar desde Header y desde TODAS las opciones de ingreso (por formulario y por google)
+//por eso LOGGED debe ser un estado global y manejarse con REDUX
