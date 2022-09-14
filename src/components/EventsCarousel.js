@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { getAll } from '../features/eventSlice'
 import Carousel from './Carousel'
 import axios from 'axios'
 import apiUrl from '../url'
