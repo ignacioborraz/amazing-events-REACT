@@ -3,12 +3,9 @@ import '../styles/Card.css'
 import {useGetAllEventsQuery} from '../features/eventsAPI'
 
 export default function EventsCards() {
+    
     const {
         data : events,
-        error,
-        isLoading,
-        isSuccess,
-        isFailed,
     } = useGetAllEventsQuery()
 
     return (

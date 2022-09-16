@@ -4,7 +4,7 @@ import EventsPage from './pages/EventsPage'
 import UnderConstruction from './pages/UnderConstruction'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import WebsiteLayout from './layouts/WebsiteLayout'
-import Details from './components/Details'
+import Detail from './pages/Detail'
 import ScrollToTop from './components/ScrollToTop'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
@@ -32,7 +32,7 @@ function App() {
           <Route path='/signup' element={logged ? <HomePage /> : <SignUp />} /> {/* la ven todos los usuarios DESLOGUEADOS */}
           <Route path='/signin' element={logged ? <HomePage /> : <SignIn />} /> {/* la ven todos los usuarios DESLOGUEADOS */}
           <Route path='/events' element={<EventsPage />} /> {/* la ven todos */}
-          <Route path='/events/:id' element={<Details />} /> {/* la ven todos */}
+          <Route path='/events/:id' element={<Detail />} /> {/* la ven todos */}
           <Route path='/new-event' element={admin ? <HomePage /> : <UnderConstruction />} /> {/* la ve solo el admin cuando está logueado */}
           {/* en mi caso no tengo definida la pagina de nuevo evento por eso le permito ir a HomePage pero deberia ir NewEvent */}
           {/* <Route path='/new-admin' element={admin ? <SignUp role='admin' /> : <UnderConstruction />} /> la ve solo el admin cuando está logueado */}
