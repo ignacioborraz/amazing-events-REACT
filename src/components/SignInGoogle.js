@@ -1,10 +1,12 @@
 import * as jose from 'jose'
 import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../url'
 
 export default function SignInGoogle() {
-
+    
+    const navigate = useNavigate()
     const buttonDiv = useRef(null)
 
     async function handleCredentialResponse(response) {
@@ -17,8 +19,9 @@ export default function SignInGoogle() {
         }
         try {
           let response = await axios.post(apiUrl+'auth/signin',data)
-          console.log(response)
+          //console.log(response)
           localStorage.setItem('user',JSON.stringify(response.data.response.user))
+          navigate("/",{replace:true}) //redirigí al index
         } catch(error) {
           console.log(error)
         }        
