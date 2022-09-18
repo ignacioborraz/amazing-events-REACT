@@ -1,27 +1,26 @@
 import * as jose from 'jose'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import apiUrl from '../url'
+import { useSignInMutation } from '../features/authAPI'
 
 export default function SignInGoogle() {
     
     const navigate = useNavigate()
     const buttonDiv = useRef(null)
+    const [signIn, data] = useSignInMutation()
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-        console.log(userObject)
-        let data = {
+        let user = {
             email: userObject.email,
             pass: userObject.sub,
             from: 'google'
         }
         try {
-          let response = await axios.post(apiUrl+'auth/signin',data)
-          //console.log(response)
-          localStorage.setItem('user',JSON.stringify(response.data.response.user))
-          navigate("/",{replace:true}) //redirigí al index
+          await signIn(user)
+          console.log(data)
+          localStorage.setItem('data',JSON.stringify(data))
+          navigate("/",{replace:true})
         } catch(error) {
           console.log(error)
         }        
