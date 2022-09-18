@@ -46,6 +46,7 @@ function Header() {
             console.log(response)
             setLogged(false) //seteo nuevamente a false el logged para mostrar la barra de navegacion de usuario deslogueado
             localStorage.removeItem('user') //removí del localStorage la clave 'user'
+            localStorage.removeItem('token') //removí del localStorage la clave 'user'
             navigate("/",{replace:true}) //redirigí al index
         } catch(error) {
             console.log(error)
@@ -61,7 +62,7 @@ function Header() {
                     <div className='Header-option' onClick={signOut}>Sign Out</div> {/* link para desloguear */}
                 </div>
             )}
-            <img ref={menuIcon} src='/user-icon.png' className="Header-icon" onClick={handleToggleMenu} alt='user' />
+            <img ref={menuIcon} src='/user.svg' className="Header-icon" onClick={handleToggleMenu} alt='user' />
         </div>
     ) : ( //si no esta logueado voy a mostrar estas opciones
         <div className="Header-container">
@@ -72,7 +73,7 @@ function Header() {
                     <LinkRouter className='Header-option' to='signup'>Sign Up</LinkRouter> {/* opcion para registrarse */}
                 </div>
             )}
-            <img ref={menuIcon} src='/user-icon.png' className="Header-icon" onClick={handleToggleMenu} alt='user' />
+            <img ref={menuIcon} src='/user.svg' className="Header-icon" onClick={handleToggleMenu} alt='user' />
         </div>
     ))
 }

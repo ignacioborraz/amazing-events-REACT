@@ -8,6 +8,7 @@ import Detail from './pages/Detail'
 import ScrollToTop from './components/ScrollToTop'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import { useSelector } from 'react-redux'
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
       JSON.parse(localStorage.getItem('user'))?.role==='admin' && setAdmin(true)
       //si existe y es admin: seteo admin
   }, [])
+
+  useSelector(state => console.log(state))
 
   return (
     <BrowserRouter>
