@@ -1,13 +1,17 @@
 import * as jose from 'jose'
 import { useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useSignInMutation } from '../features/authAPI'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../features/authSlice'
+import Alert from './Alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignInGoogle() {
     
-    const navigate = useNavigate()
     const buttonDiv = useRef(null)
-    const [signIn, data] = useSignInMutation()
+    const [signIn] = useSignInMutation()
+    const dispatch = useDispatch()
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
@@ -17,12 +21,18 @@ export default function SignInGoogle() {
             from: 'google'
         }
         try {
-          await signIn(user)
-          console.log(data)
-          localStorage.setItem('data',JSON.stringify(data))
-          navigate("/",{replace:true})
+            let res = await signIn(user)
+            if (res.data?.success) {
+                console.log(res.data)
+                toast(<Alert text={res.data.message} />)
+                dispatch(setCredentials(res.data.response.user))
+                localStorage.setItem('token',res.data.response.token)
+            } else {
+                console.log(res.error)
+                toast(<Alert text={res.error.data.message} />)
+            }
         } catch(error) {
-          console.log(error)
+            console.log(error)
         }        
     }
 
@@ -39,7 +49,7 @@ export default function SignInGoogle() {
           );
     }, [])
 
-  return (
-      <div ref={buttonDiv}></div>
-  )
+    return (
+        <div ref={buttonDiv}></div>
+    )
 }
