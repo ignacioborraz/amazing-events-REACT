@@ -12,18 +12,50 @@ const authAPI = createApi({
         baseUrl: apiUrl
     }),
 
+    initialState: {
+        user: null,
+        logged: false
+    },
+
     endpoints: (builder) => ({
+        signUp: builder.mutation({
+            query: (user) => ({
+                url: '/auth/signup',
+                method: 'POST',
+                body: user
+            })
+        }),
         signIn: builder.mutation({
             query: (user) => ({
                 url: '/auth/signin',
                 method: 'POST',
                 body: user,
-                transformResponse: res => res.response
+                transformResponse: res => res.data
+            })
+        }),
+        signInToken: builder.mutation({
+            query: (token) => ({
+                url: '/auth/token',
+                method: 'GET',
+                headers: {Authorization: 'Bearer '+token}
+            })
+        }),
+        signOut: builder.mutation({
+            query: (user) => ({
+                url: '/auth/signout',
+                method: 'POST',
+                body: user
             })
         })
     })
 
 })
 
+export const {
+    useSignUpMutation,
+    useSignInMutation,
+    useSignInTokenMutation,
+    useSignOutMutation
+} = authAPI
+
 export default authAPI
-export const {useSignInMutation} = authAPI

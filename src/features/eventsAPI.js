@@ -16,9 +16,11 @@ const eventsAPI = createApi({
         getAllEvents: builder.query({
             query : () => '/events'
         }),
-        getOneEvent: builder.query({
-            query : (id) => '/events/'+id,
-            transformResponse: res => res.response
+        getOneEvent: builder.mutation({
+            query: (id) => ({
+                url: '/events/'+id,
+                method: 'GET'
+            })
         }),
         likeDislike: builder.mutation({
             query: (id) => ({
@@ -31,5 +33,10 @@ const eventsAPI = createApi({
 
 })
 
+export const {
+    useGetAllEventsQuery,
+    useGetOneEventMutation,
+    useLikeDislikeMutation
+} = eventsAPI
+
 export default eventsAPI
-export const {useGetAllEventsQuery,useGetOneEventQuery,useLikeDislikeMutation} = eventsAPI

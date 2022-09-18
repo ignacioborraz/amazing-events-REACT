@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import eventsAPI from './eventsAPI'
 import authAPI from './authAPI'
 import authReducer from './authSlice'
