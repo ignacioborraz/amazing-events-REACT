@@ -1,9 +1,14 @@
-import EventsCards from '../components/EventsCards'
+import '../styles/Card.css'
+import Card from '../components/Card'
+import { useGetAllEventsQuery } from '../features/eventsAPI'
 
-function EventsPage() {
+export default function EventsPage() {
+    
+    const { data : events } = useGetAllEventsQuery()
+
     return (
-        <EventsCards />
+        <div className='Events-container'>
+            {events?.map(event => <Card event={event} key={event.name}/>)}
+        </div>
     )
 }
-
-export default EventsPage
