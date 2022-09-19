@@ -22,6 +22,7 @@ import UnderConstruction from './pages/UnderConstruction'
 import Detail from './pages/Detail'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import NewEvent from './pages/NewEvent'
 import WebsiteLayout from './layouts/WebsiteLayout'
 
 //others
@@ -75,6 +76,7 @@ export default function App() {
                     <Route path='/signin' element={logged ? <HomePage /> : <SignIn />} /> {/* la ven todos los usuarios DESLOGUEADOS */}
                     <Route path='/events' element={<EventsPage />} /> {/* la ven todos */}
                     <Route path='/events/:id' element={<Detail />} /> {/* la ven todos */}
+                    <Route path='/new-event' element={<NewEvent />} /> {/* la ven solo el admin */}
                     {/*<Route path='/new-event' element={role==='admin' ? <HomePage /> : <UnderConstruction />} /> la ve solo el admin cuando está logueado */}
                     {/* en mi caso no tengo definida la pagina de nuevo evento por eso le permito ir a HomePage pero deberia ir NewEvent */}
                     {/* <Route path='/new-admin' element={admin ? <SignUp role='admin' /> : <UnderConstruction />} /> la ve solo el admin cuando está logueado */}
