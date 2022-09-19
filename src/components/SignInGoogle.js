@@ -1,29 +1,38 @@
 import * as jose from 'jose'
 import { useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import apiUrl from '../url'
+import { useSignInMutation } from '../features/authAPI'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../features/authSlice'
+import Alert from './Alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignInGoogle() {
     
-    const navigate = useNavigate()
     const buttonDiv = useRef(null)
+    const [signIn] = useSignInMutation()
+    const dispatch = useDispatch()
 
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-        console.log(userObject)
-        let data = {
+        let user = {
             email: userObject.email,
             pass: userObject.sub,
             from: 'google'
         }
         try {
-          let response = await axios.post(apiUrl+'auth/signin',data)
-          //console.log(response)
-          localStorage.setItem('user',JSON.stringify(response.data.response.user))
-          navigate("/",{replace:true}) //redirigí al index
+            let res = await signIn(user)
+            if (res.data?.success) {
+                console.log(res.data)
+                toast(<Alert text={res.data.message} />)
+                dispatch(setCredentials(res.data.response.user))
+                localStorage.setItem('token',res.data.response.token)
+            } else {
+                console.log(res.error)
+                toast(<Alert text={res.error.data.message} />)
+            }
         } catch(error) {
-          console.log(error)
+            console.log(error)
         }        
     }
 
@@ -40,7 +49,7 @@ export default function SignInGoogle() {
           );
     }, [])
 
-  return (
-      <div ref={buttonDiv}></div>
-  )
+    return (
+        <div ref={buttonDiv}></div>
+    )
 }

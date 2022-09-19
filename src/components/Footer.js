@@ -14,14 +14,14 @@ export default function Footer() {
     return (
         <div className='Footer-container'>
             <LinkRouter to='/'>
-                <img src='/home-icon.png' onClick={scrollUp} className='Footer-button' alt='home' />
+                <img src='/home.svg' onClick={scrollUp} className='Footer-button' alt='home' />
             </LinkRouter>
             <div className='Footer-middle'>
                 <p className='Footer-title'>Amazing Events</p>
                 <p className='Footer-p'>borraz - lopez - rodriguez</p>
                 <p className='Footer-p'>villafañe</p>
             </div>
-            <img src='/top-icon.png' onClick={scrollUp} className='Footer-button' alt='top' />
+            <img src='/top.svg' onClick={scrollUp} className='Footer-button' alt='top' />
         </div>
     )
 

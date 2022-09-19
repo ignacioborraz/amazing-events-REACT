@@ -37,9 +37,9 @@
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    background-color: rgb(130,40,60);
+    background-color: rgb(210,210,210);
 }
 
 .Footer-button:hover {
-    box-shadow: 0 0 5px rgb(210,210,210), 0 0 5px rgb(210,210,210), 0px 0px 5px rgb(210,210,210);
+    box-shadow: 0 0 5px white, 0 0 5px white, 0px 0px 5px white;
 }
