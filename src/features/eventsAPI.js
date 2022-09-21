@@ -28,6 +28,14 @@ const eventsAPI = createApi({
                 method: 'PATCH',
                 headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
             })
+        }),
+        createEvent: builder.mutation({
+            query: (data) => ({
+                url: '/events',
+                method: 'POST',
+                body: data,
+                headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
+            })
         })
     })
 
@@ -36,7 +44,8 @@ const eventsAPI = createApi({
 export const {
     useGetAllEventsQuery,
     useGetOneEventMutation,
-    useLikeDislikeMutation
+    useLikeDislikeMutation,
+    useCreateEventMutation
 } = eventsAPI
 
 export default eventsAPI
