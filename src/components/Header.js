@@ -11,6 +11,11 @@ const pages = [
     { name: 'Events', to: '/events' }
 ]
 
+const adminPages = [
+    ...pages,
+    { name: 'New Event', to: '/new-event'}
+]
+
 function Header() {
     
     const [open, setOpen] = useState(false)
@@ -55,7 +60,7 @@ function Header() {
 
     return (logged ? ( //si el usuario esta logueado
         <div className="Header-container">
-            {pages.map(link)}
+            {role==='admin' ? adminPages.map(link) : pages.map(link)}
             {open && (
                 <div className='Header-user'>
                     <div className='Header-option'>{user?.name}</div> {/* busco la propiedad name de la clave user */}
