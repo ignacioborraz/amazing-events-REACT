@@ -22,10 +22,7 @@ import UnderConstruction from './pages/UnderConstruction'
 import Detail from './pages/Detail'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
-<<<<<<< HEAD
 import NewEvent from './pages/NewEvent'
-=======
->>>>>>> 1ebf17d6d1c7ac57eb72a5fc8c0f835e887abde0
 import WebsiteLayout from './layouts/WebsiteLayout'
 
 //others
@@ -38,7 +35,6 @@ export default function App() {
 
     const [signInToken] = useSignInTokenMutation()
     const dispatch = useDispatch()
-<<<<<<< HEAD
     useSelector(state => console.log(state))
     const logged = useSelector(state => state.auth.logged)
     const role = useSelector(state => state.auth.role)
@@ -46,15 +42,6 @@ export default function App() {
     async function verifyToken() {
         try {
             let res = await signInToken()
-=======
-    //useSelector(state => console.log(state))
-    const logged = useSelector(state => state.auth.logged)
-    //const role = useSelector(state => state.auth.role)
-
-    async function verifyToken() {
-        try {
-            let res = await signInToken(localStorage.getItem('token'))
->>>>>>> 1ebf17d6d1c7ac57eb72a5fc8c0f835e887abde0
             //console.log(res)
             if (res.data?.success) {
                 //console.log(res.data)
@@ -78,7 +65,6 @@ export default function App() {
     }, [])
 
     return (
-<<<<<<< HEAD
         <BrowserRouter>
             <ScrollToTop />
             <WebsiteLayout>
@@ -105,37 +91,6 @@ export default function App() {
                 pauseOnHover
             />
         </BrowserRouter>
-=======
-      <BrowserRouter>
-          <ScrollToTop />
-          <WebsiteLayout>
-              <Routes>
-                  <Route path='/' element={<HomePage />} /> {/* la ven todos */}
-                  {/* path se pasa la ruta y en element el componente de pagina a renderizar */}
-                  {/* adentro de element tengo que incorporar la logica necesaria para mostrar una pagina u otra */}
-                  <Route path='/signup' element={logged ? <HomePage /> : <SignUp />} /> {/* la ven todos los usuarios DESLOGUEADOS */}
-                  <Route path='/signin' element={logged ? <HomePage /> : <SignIn />} /> {/* la ven todos los usuarios DESLOGUEADOS */}
-                  <Route path='/events' element={<EventsPage />} /> {/* la ven todos */}
-                  <Route path='/events/:id' element={<Detail />} /> {/* la ven todos */}
-                  {/*<Route path='/new-event' element={role==='admin' ? <HomePage /> : <UnderConstruction />} /> la ve solo el admin cuando está logueado */}
-                  {/* en mi caso no tengo definida la pagina de nuevo evento por eso le permito ir a HomePage pero deberia ir NewEvent */}
-                  {/* <Route path='/new-admin' element={admin ? <SignUp role='admin' /> : <UnderConstruction />} /> la ve solo el admin cuando está logueado */}
-                  <Route path='*' element={<UnderConstruction />} />
-              </Routes>
-          </WebsiteLayout>
-          <ToastContainer
-              position="bottom-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-          />
-      </BrowserRouter>
->>>>>>> 1ebf17d6d1c7ac57eb72a5fc8c0f835e887abde0
     )
 
 }
