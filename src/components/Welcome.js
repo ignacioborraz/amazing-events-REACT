@@ -8,7 +8,7 @@ function Welcome() {
     return (
       <div className='Welcome-container'>
         <h1 className="Welcome-title">{title}</h1>
-        <CallToAction linkTo='events' buttonText={buttonText} radio='80'/>
+        <CallToAction linkTo='/events' buttonText={buttonText} radio='80'/>
       </div>
     );
 }
