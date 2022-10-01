@@ -72,8 +72,8 @@ export default function Detail() {
             <h3 className="Detail-title">{data.name}</h3>
             <p className="Detail-text">{data.category}</p>
             <img src={data.image} className="Detail-image" alt={data.name} />
-            <p className="Detail-date">{data.date}</p>
-            <p className="Detail-date">{data.description}</p>
+            <p className="Detail-date">{`${(new Date(data.date)).getDate()}-${(new Date(data.date)).getMonth()}-${(new Date(data.date)).getFullYear()}`}</p>
+            <p className="Detail-description">{data.description}</p>
             <p className="Detail-text">
                 <img src={image} onClick={like} className='Detail-button' alt='like' />
             </p>
