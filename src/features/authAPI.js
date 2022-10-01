@@ -12,11 +12,6 @@ const authAPI = createApi({
         baseUrl: apiUrl
     }),
 
-    initialState: {
-        user: null,
-        logged: false
-    },
-
     endpoints: (builder) => ({
         signUp: builder.mutation({
             query: (user) => ({
@@ -34,10 +29,10 @@ const authAPI = createApi({
             })
         }),
         signInToken: builder.mutation({
-            query: (token) => ({
+            query: () => ({
                 url: '/auth/token',
                 method: 'GET',
-                headers: {Authorization: 'Bearer '+token}
+                headers: {Authorization: 'Bearer '+localStorage.getItem('token')}
             })
         }),
         signOut: builder.mutation({

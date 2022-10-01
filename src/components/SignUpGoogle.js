@@ -42,11 +42,11 @@ export default function SignUpGoogle() {
             client_id: '1028505588373-p2o75qn886u82uorrtoniua3h24cb3eb.apps.googleusercontent.com',
             callback: handleCredentialResponse,
             context: 'signup'
-          });
-          google.accounts.id.renderButton(
+        });
+        google.accounts.id.renderButton(
             buttonDiv.current,
             { theme: "outline", size: "medium", text: 'signup_with' }
-          );
+        );
     }, [])
 
     return (
