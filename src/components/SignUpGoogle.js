@@ -5,6 +5,7 @@ import { useSignUpMutation } from '../features/authAPI'
 import Alert from './Alert'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+const { REACT_APP_ID } = process.env
 
 export default function SignUpGoogle() {
 
@@ -39,7 +40,7 @@ export default function SignUpGoogle() {
     useEffect(() => {
         /* global google */
         google.accounts.id.initialize({
-            client_id: '1028505588373-p2o75qn886u82uorrtoniua3h24cb3eb.apps.googleusercontent.com',
+            client_id: REACT_APP_ID,
             callback: handleCredentialResponse,
             context: 'signup'
         });
