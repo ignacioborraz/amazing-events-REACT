@@ -1,4 +1,4 @@
-import '../styles/Detail.css'
+import Alert from '../components/Alert'
 import {
     useRef
 } from 'react'
@@ -8,43 +8,39 @@ import {
 import {
     useNavigate
 } from 'react-router-dom'
-
+import {
+    toast
+} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import '../styles/NewEvent.css'
 
 export default function NewEvent() {
 
     let [ createEvent ] = useCreateEventMutation()
-    let name = useRef()
-    let image = useRef()
-    let date = useRef()
-    let description = useRef()
-    let category = useRef()
-    let place = useRef()
-    let capacity = useRef()
-    let estimated = useRef()
-    let price = useRef()
+    let form = useRef()
     let navigate = useNavigate()
 
     async function newEvent(event) {
         event.preventDefault()
-        let data = {
-            name: name.current?.value.trim(),
-            image: image.current?.value.trim(),
-            date: date.current?.value.trim(),
-            description: description.current?.value.trim(),
-            category: category.current?.value.trim(),
-            place: place.current?.value.trim(),
-            capacity: capacity.current?.value.trim(),
-            estimated: estimated.current?.value.trim(),
-            price: price.current?.value.trim(),
-            likes: []
-        }
+        //console.log(form.current)
+        let data = { likes: [] }
+        Array.from(form.current).forEach(input=>{
+            if(input.name==='date') {
+                data[input.name] = Date(input.value.trim())
+            } else if (input.name) {
+                data[input.name] = input.value.trim()
+            }
+        })
+        //console.log(data)
         try {
             let res = await createEvent(data)
             console.log(res)
             if (res.data?.success) {
                 navigate("/events",{replace:true})
+                toast(<Alert text={res.data.message} />)
             } else {
                 console.log(res.error)
+                toast(<Alert text={res.error.data.message} />)
             }
         } catch(error) {
             console.log(error)
@@ -52,20 +48,18 @@ export default function NewEvent() {
     }
 
     return (
-        <div className="Detail-container">
-            <form onSubmit={newEvent} className=''>
-                <input type='text' ref={name} placeholder='name'/>
-                <input type='url' ref={image} placeholder='image'/>
-                <input type='date' ref={date} placeholder='date'/>
-                <input type='text' ref={description} placeholder='description'/>
-                <input type='text' ref={category} placeholder='category'/>
-                <input type='text' ref={place} placeholder='place'/>
-                <input type='number' ref={capacity} placeholder='capacity'/>
-                <input type='number' ref={estimated} placeholder='estimated'/>
-                <input type='number' ref={price} placeholder='price'/>
-                <input type="submit" className='' required value='create!' />
-            </form>
-        </div>
+        <form onSubmit={newEvent} ref={form} className='New-container'>
+            <input type='text' name='name' placeholder='name' className='New-text'/>
+            <input type='url' name='image' placeholder='image' className='New-text'/>
+            <input type='date'name='date' placeholder='date' className='New-text'/>
+            <input type='text' name='description' placeholder='description' className='New-text'/>
+            <input type='text' name='category' placeholder='category' className='New-text'/>
+            <input type='text' name='place' placeholder='place' className='New-text'/>
+            <input type='number' name='capacity' placeholder='capacity' className='New-text'/>
+            <input type='number' name='estimated' placeholder='estimated' className='New-text'/>
+            <input type='number' name='price' placeholder='price' className='New-text'/>
+            <input type="submit" className='New-title' required value='create!' />
+        </form>
     )
 
 }

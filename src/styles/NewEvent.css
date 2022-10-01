@@ -1,0 +1,37 @@
+.New-container {
+    margin: 10px;
+    width: 70%;
+    max-width: 500px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.New-text, .New-title {
+    width: 100%;
+    min-height: 2rem;
+    font-size: 1rem;
+    background-color: rgb(210, 210, 210);
+    color:  rgb(130, 40, 60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0.1rem;
+}
+
+.New-title {
+    background-color: rgb(40 ,40 ,40);
+    color: rgb(210, 210, 210);
+    height: 3rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.New-title:hover {
+    box-shadow: 0 0 5px rgb(210, 210, 210), 0 0 5px rgb(210, 210, 210), 0px 0px 5px rgb(210, 210, 210);
+}
