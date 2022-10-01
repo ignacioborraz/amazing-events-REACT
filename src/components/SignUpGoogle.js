@@ -26,7 +26,7 @@ export default function SignUpGoogle() {
         try {
             let res = await signUp(user)
             if (res.data?.success) {
-                console.log(res.data)
+                //console.log(res.data)
                 navigate("/signin",{replace:true})
                 //toast(<Alert text={res.data.message} />)
             } else {

@@ -35,7 +35,7 @@ export default function App() {
 
     const [signInToken] = useSignInTokenMutation()
     const dispatch = useDispatch()
-    useSelector(state => console.log(state))
+    //useSelector(state => console.log(state))
     const logged = useSelector(state => state.auth.logged)
     const role = useSelector(state => state.auth.role)
 
