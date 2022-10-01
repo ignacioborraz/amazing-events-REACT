@@ -10,6 +10,7 @@ export default function EventsCards() {
         isSuccess,
         isFailed,
     } = useGetAllEventsQuery()
+    console.log(events)
 
     return (
         <div className='Events-container'>
