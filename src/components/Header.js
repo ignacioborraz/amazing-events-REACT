@@ -49,7 +49,7 @@ function Header() {
     async function logOut() {
         //let email = JSON.parse(localStorage.getItem('user')).email //primero busco el mail del objeto del localStorage
         try {
-            await signOut(user.email)
+            await signOut()
             localStorage.removeItem('token')
             dispatch(deleteCredentials())
             navigate("/",{replace:true})

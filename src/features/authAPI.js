@@ -36,10 +36,10 @@ const authAPI = createApi({
             })
         }),
         signOut: builder.mutation({
-            query: (user) => ({
+            query: () => ({
                 url: '/auth/signout',
                 method: 'POST',
-                body: user
+                headers: {Authorization: 'Bearer '+localStorage.getItem('token')}
             })
         })
     })
