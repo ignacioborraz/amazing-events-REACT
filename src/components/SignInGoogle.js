@@ -24,7 +24,7 @@ export default function SignInGoogle() {
         try {
             let res = await signIn(user)
             if (res.data?.success) {
-                console.log(res.data)
+                //console.log(res.data)
                 toast(<Alert text={res.data.message} />)
                 dispatch(setCredentials(res.data.response.user))
                 localStorage.setItem('token',res.data.response.token)

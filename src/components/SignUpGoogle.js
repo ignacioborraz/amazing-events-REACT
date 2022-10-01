@@ -28,7 +28,7 @@ export default function SignUpGoogle() {
             if (res.data?.success) {
                 //console.log(res.data)
                 navigate("/signin",{replace:true})
-                //toast(<Alert text={res.data.message} />)
+                toast(<Alert text={res.data.message} />)
             } else {
                 console.log(res.error)
                 toast(<Alert text={res.error.data.message} />)
