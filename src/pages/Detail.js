@@ -9,74 +9,101 @@ import {
     useSelector
 } from 'react-redux'
 import {
-    useGetOneEventMutation,
-    useLikeDislikeMutation
+    useGetOneEventMutation
 } from '../features/eventsAPI'
+import {
+    useGetLikesMutation,
+    useLikeDislikeMutation,
+    useMyLikeMutation
+} from '../features/likesAPI'
 
 
 export default function Detail() {
     
     const { id } = useParams()
+    const userId = useSelector(state => state.auth.userId)
     let [ getOneEvent ] = useGetOneEventMutation()
+    let [ getLikes ] = useGetLikesMutation()
+    const [ myLike ] = useMyLikeMutation()
     const [ likeDislike ] = useLikeDislikeMutation()
     const [data,setData] = useState({})
     const [image,setImage] = useState('')
+    const [like,setLike] = useState(0)
     const [reload,setReload] = useState(true)
-    const userId = useSelector(state => state.auth.userId)
 
-    useEffect(()=>{
+    useEffect(()=> {
         getEvent()
+        initialLike()
+        // eslint-disable-next-line
+    },[userId])
+
+    useEffect(()=> {
+        likes()
+        // eslint-disable-next-line
     },[reload])
 
     async function getEvent() {
         try {
             let res = await getOneEvent(id)
-            //console.log(res)
-            if (res.data?.success) {
-                console.log(res.data.response.likes)
-                if (res.data.response.likes.includes(userId)) {
-                    console.log('boton para quitar')
+            setData(res.data.response)
+        } catch(error) {
+            console.log(error)
+        }        
+    }
+
+    async function initialLike() {
+        if (userId) {
+            try {
+                let res = await myLike({ id,userId })
+                if (res.data.likes) {
                     setImage('/dislike.svg')
                 } else {
-                    console.log('boton para agregar')
                     setImage('/like.svg')
                 }
-                setData(res.data.response)
-            } else {
-                console.log(res.error)
+            } catch(error) {
+                setImage('/like.svg')
+                console.log(error)
             }
+        } else {
+            setImage('/like.svg')
+        }
+    }
+
+    async function likes() {
+        try {
+            let res = await getLikes(id)
+            setLike(res.data.likes)
         } catch(error) {
             console.log(error)
         }
     }
 
-    async function like(event) {
-        //console.log(id)
-        if (localStorage.getItem('token')) {
+    async function likeOrDislike() {
+        if (userId) {
             try {
                 let res = await likeDislike(id)
-                if (res.data?.success) {
-                    console.log(res.data)
-                    setReload(!reload)
+                if (res.data.message==='liked') {
+                    setImage('/dislike.svg')
                 } else {
-                    console.log(res.error)
+                    setImage('/like.svg')
                 }
+                setReload(!reload)
             } catch(error) {
                 console.log(error)
             }
-        }
+        }        
     }
 
     return (data &&
         <div className="Detail-container">
             <h3 className="Detail-title">{data.name}</h3>
-            <p className="Detail-text">{data.category}</p>
+            <p className="Detail-text">{data.category?.name}</p>
             <img src={data.image} className="Detail-image" alt={data.name} />
-            <p className="Detail-date">{`${(new Date(data.date)).getDate()}-${(new Date(data.date)).getMonth()}-${(new Date(data.date)).getFullYear()}`}</p>
-            <p className="Detail-description">{data.description}</p>
+            <p className="Detail-date">{`${(new Date(data.date)).getDate()}/${(new Date(data.date)).getMonth()}/${(new Date(data.date)).getFullYear()}`} - {like} likes!</p>
             <p className="Detail-text">
-                <img src={image} onClick={like} className='Detail-button' alt='like' />
+                <img src={image} onClick={likeOrDislike} className='Detail-button' alt='like' />
             </p>
+            <p className="Detail-description">{data.description}</p>
         </div>
     )
 

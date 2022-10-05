@@ -5,7 +5,7 @@ export default function Card(props) {
     return (
         <LinkRouter to={`/events/${event._id}`} className="Card-container">
             <h3 className="CardEvent-title">{event.name}</h3>
-            <p className="CardEvent-text">{event.category}</p>
+            <p className="CardEvent-text">{event.category.name}</p>
             <img src={event.image} className="CardEvent-image" alt={event.name}/>
             <p className="CardEvent-text">{`${(new Date(event.date)).getDate()}-${(new Date(event.date)).getMonth()}-${(new Date(event.date)).getFullYear()}`}</p>
         </LinkRouter>
