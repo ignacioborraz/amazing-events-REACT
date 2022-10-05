@@ -43,8 +43,12 @@ export default function Detail() {
     },[reload])
 
     async function getEvent() {
-        let res = await getOneEvent(id)
-        setData(res.data.response)
+        try {
+            let res = await getOneEvent(id)
+            setData(res.data.response)
+        } catch(error) {
+            console.log(error)
+        }        
     }
 
     async function initialLike() {
@@ -60,6 +64,8 @@ export default function Detail() {
                 setImage('/like.svg')
                 console.log(error)
             }
+        } else {
+            setImage('/like.svg')
         }
     }
 
@@ -73,13 +79,19 @@ export default function Detail() {
     }
 
     async function likeOrDislike() {
-        let res = await likeDislike(id)
-        if (res.data.message==='liked') {
-            setImage('/dislike.svg')
-        } else {
-            setImage('/like.svg')
-        }
-        setReload(!reload)
+        if (userId) {
+            try {
+                let res = await likeDislike(id)
+                if (res.data.message==='liked') {
+                    setImage('/dislike.svg')
+                } else {
+                    setImage('/like.svg')
+                }
+                setReload(!reload)
+            } catch(error) {
+                console.log(error)
+            }
+        }        
     }
 
     return (data &&
