@@ -72,8 +72,8 @@ export default function App() {
                     <Route path='/' element={<HomePage />} />
                     <Route path='/signup' element={logged ? <HomePage /> : <SignUp />} />
                     <Route path='/signin' element={logged ? <HomePage /> : <SignIn />} />
-                    <Route path='/events' element={<EventsPage />} />
-                    <Route path='/events/:id' element={<Detail />} />
+                    <Route path='/events/:page' element={<EventsPage />} />
+                    <Route path='/event/:id' element={<Detail />} />
                     <Route path='/new-event' element={role==='admin' ? <NewEvent /> : <UnderConstruction />} />
                     {/*<Route path='/new-admin' element={admin ? <SignUp role='admin' /> : <UnderConstruction />} />*/}
                     <Route path='*' element={<UnderConstruction />} />

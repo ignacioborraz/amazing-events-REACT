@@ -8,7 +8,7 @@ import '../styles/Header.css'
 
 const pages = [
     { name: 'Home', to: '/' },
-    { name: 'Events', to: '/events' }
+    { name: 'Events', to: '/events/1' }
 ]
 
 const adminPages = [
