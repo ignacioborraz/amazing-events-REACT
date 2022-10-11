@@ -14,7 +14,7 @@ const eventsAPI = createApi({
 
     endpoints: (builder) => ({
         getAllEvents: builder.query({
-            query : () => '/events'
+            query : (page) => '/events?limit=18&order=desc&page='+page
         }),
         getOneEvent: builder.mutation({
             query: (id) => ({
